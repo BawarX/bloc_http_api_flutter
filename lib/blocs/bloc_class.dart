@@ -8,6 +8,7 @@ class userBloc extends Bloc<UserEvent, UserState> {
   userBloc() : super(userLoadedState()) {
     on<LoadUserEvent>(((event, emit) async {
       emit(userLoadingState());
+      emit(userLoadedState());
     }));
   }
 }
