@@ -8,7 +8,6 @@ class userLoadingState extends UserState {
 }
 
 //data loaded
-
 class userLoadedState extends UserState {
   List<Object?> get props => [];
 }
