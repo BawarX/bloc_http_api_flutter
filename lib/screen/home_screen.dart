@@ -24,6 +24,7 @@ class _homeState extends State<home> {
       )..add(LoadUserEvent()),
       child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.greenAccent,
             title: Text('The Bloc App'),
           ),
           body: BlocBuilder<userBloc, UserState>(
@@ -39,7 +40,7 @@ class _homeState extends State<home> {
                   itemCount: userList.length,
                   itemBuilder: (context, index) {
                     return Card(
-                      color: Colors.red,
+                      color: Colors.greenAccent,
                       elevation: 2,
                       margin: EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
