@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: home(),
+      home: RepositoryProvider(
+        create: (context) => userRepository(),
+        child: home(),
+      ),
     );
   }
 }

@@ -5,10 +5,17 @@ import 'package:bloc_http_api/userModel/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class userBloc extends Bloc<UserEvent, UserState> {
-  userBloc() : super(userLoadedState()) {
+  final userRepository _userRepository;
+
+  userBloc(this._userRepository) : super(userLoadingState()) {
     on<LoadUserEvent>(((event, emit) async {
       emit(userLoadingState());
-      emit(userLoadedState());
+      try {
+        final users = await _userRepository.getUsers();
+        emit(userLoadedState(users));
+      } catch (e) {
+        emit(dataErrorState(e.toString()));
+      }
     }));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bloc_http_api/userModel/user_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class UserState extends Equatable {}
@@ -9,9 +10,13 @@ class userLoadingState extends UserState {
 
 //data loaded
 class userLoadedState extends UserState {
-  List<Object?> get props => [];
+  userLoadedState(this.users);
+  final List<UserModel> users;
+  List<Object?> get props => [users];
 }
 
 class dataErrorState extends UserState {
-  List<Object?> get props => [];
+  dataErrorState(this.error);
+  final String error;
+  List<Object?> get props => [error];
 }
