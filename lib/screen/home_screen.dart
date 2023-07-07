@@ -18,9 +18,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => userBloc(
-        RepositoryProvider.of<userRepository>(context),
-      )..add(LoadUserEvent()),
+      create: (context) => userBloc()..add(LoadUserEvent()),
       child: Scaffold(
           appBar: AppBar(
             title: Text('The Bloc App'),
@@ -32,7 +30,9 @@ class _homeState extends State<home> {
                   child: Text("data is Loading, please wait"),
                 );
               }
-              return Container();
+              return Container(
+                child: Text("im container"),
+              );
             },
           )),
     );
